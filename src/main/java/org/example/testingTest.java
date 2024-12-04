@@ -15,7 +15,7 @@ public class testingTest {
     }
 
     private void processSymbol(char symbol) {
-        switch (numb) {
+        /*switch (numb) {
             case 0:
                 if (symbol == 'T') {
                     numb = 1;
@@ -46,8 +46,18 @@ public class testingTest {
                 break;
             case 4:
                 break;
-        }
+        }*/
+
+        numb = switch (numb) {
+            case 0 -> (symbol == 'T') ? 1 : 0;
+            case 1 -> (symbol == 'E') ? 2 : (symbol != 'T') ? 0 : 1;
+            case 2 -> (symbol == 'S') ? 3 : (symbol == 'T') ? 1 : 0;
+            case 3 -> (symbol == 'T') ? 4 : 0;
+            case 4 -> 4;
+            default -> 0;
+        };
     }
+
 
     public String analyze() {
         reset();
